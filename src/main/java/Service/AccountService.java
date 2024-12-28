@@ -42,5 +42,16 @@ public class AccountService {
         return null;
     }
 
+    public boolean checkExistingAccountById(int accountId) {
+        Account existingAccount = this.accountDAO.getAccountByAccountId(accountId);
+
+        if(existingAccount == null || existingAccount.getAccount_id() != accountId) {
+            // Order is important for null to be first if no user existed in DB
+            return false;
+        } else {
+            return true;
+        }
+    } 
+
 
 }

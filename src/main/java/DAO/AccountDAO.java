@@ -70,6 +70,37 @@ public class AccountDAO {
         return null;
     }
 
+    public Account getAccountByAccountId(int accountId) {
+        // Step 1) Get Establish Connection Pool to DB
+        Connection connection = ConnectionUtil.getConnection();
+
+        // Step 2) Wrap the try/catch clause because we are attempting to SQL
+        try {
+            // Step 3) Create SQL to Retrieve Account By Username
+            String sql = "SELECT * FROM account WHERE account_id=?";
+
+            // Step 4) Prepare Statement because SQL Injections
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, accountId);
+
+            // Process ResultSet
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+                System.out.println("Got a match in DB AccountDAO");
+                
+                int account_id = rs.getInt("account_id");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+
+                return new Account(account_id, username, password);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 
     // END
