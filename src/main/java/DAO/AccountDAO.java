@@ -87,8 +87,6 @@ public class AccountDAO {
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()) {
-                System.out.println("Got a match in DB AccountDAO");
-                
                 int account_id = rs.getInt("account_id");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
