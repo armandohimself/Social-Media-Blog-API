@@ -1,10 +1,12 @@
-# Project: Social media blog API
+# Project: Social Media Blog API
 
 ## Background 
 
 When building a full-stack application, we're typically concerned with both a front end, that displays information to the user and takes in input, and a backend, that manages persisted information.
 
-This project will be a backend for a hypothetical social media app, where we must manage our users’ accounts as well as any messages that they submit to the application. The application will function as a micro-blogging or messaging app. In our hypothetical application, any user should be able to see all of the messages posted to the site, or they can see the messages posted by a particular user. In either case, we require a backend which is able to deliver the data needed to display this information as well as process actions like logins, registrations, message creations, message updates, and message deletions.
+This project is a backend for a hypothetical social media app, where we must manage our user's accounts as well as any messages that they submit to the application. The application will function as a micro-blogging or messaging app. 
+In our hypothetical application, any user should be able to see all of the messages posted to the site, or they can see the messages posted by a particular user. 
+In either case, it is required to deliver the data needed to display this information as well as process actions like logins, registrations, message creations, message updates, and message deletions.
 
 ## Database Tables 
 
@@ -26,7 +28,7 @@ time_posted_epoch long,
 foreign key (posted_by) references Account(account_id)
 ```
 
-# Requirements
+# Requirements Gathering 
 
 ## 1: Our API should be able to process new User registrations.
 
@@ -91,5 +93,3 @@ The .sql script found in src/main/resources is already complete and SHOULD NOT B
 You SHOULD be changing the SocialMediaController class to add endpoints to the StartAPI method. A main method in Main.java is also provided to allow you to run the entire application and manually play or test with the app. Changing that class will not affect the test cases at all. You could use it to perform any manual unit testing on your other classes.
 
 You SHOULD be creating and designing DAO and Service class to allow you to complete the project. In theory, you could design the project however you like, so long as the functionality works and you are somehow persisting data to the database - but a 3-layer architecture is a robust design pattern and following help you in the long run. You can refer to prior mini-projects and course material for help on designing your application in this way.
-
-# Good luck!
